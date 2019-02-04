@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import WatchList from './components/WatchkList';
 
 
 class App extends Component {
@@ -6,6 +7,7 @@ class App extends Component {
     return (
       <div id="main">
       <h1>Watch List </h1>
+      <WatchList />
       </div>
     );
   }
