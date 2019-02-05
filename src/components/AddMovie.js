@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {graphql, compose} from 'react-apollo';
 
-import {getDirectorsQuery, addMovieMutation} from '../queries/queries'
+import {getDirectorsQuery, addMovieMutation, getMoviesQuery} from '../queries/queries'
 
 
 class AddMovie extends Component {
@@ -10,7 +10,7 @@ class AddMovie extends Component {
     state={
         name: "",
         genre: "",
-        authorId: ""
+        directorId: ""
     }
 
     displayDirectors(){
@@ -29,8 +29,10 @@ class AddMovie extends Component {
             variables:{
                 name: this.state.name,
                 genre: this.state.genre,
-                authorId: this.state.authorId
-            }
+                directorId: this.state.directorId
+            },
+
+            refetchQueries: [{query:getMoviesQuery}]
         });
     }
     
@@ -46,12 +48,12 @@ class AddMovie extends Component {
             
             <div className="field">
             <label>Genre </label>
-            <input type="text" onChange={(e)=> this.UNSAFE_componentWillMount.setState({genre: e.target.value})} />
+            <input type="text" onChange={(e)=> this.setState({genre: e.target.value})} />
             </div>
             
             <div className="field">
             <label>Director </label>
-            <select onChange={(e)=> this.setState({ authorId:e.target.value})} >
+            <select onChange={(e)=> this.setState({ directorId:e.target.value})} >
                 <option>Select Director </option>
                 {this.displayDirectors()}
             </select>

@@ -21,8 +21,8 @@ const getDirectorsQuery =gql`
 `
 
 const addMovieMutation =gql`
-mutation($name:String!,$genre:String!,$authorId: ID!){
-    addMovie(name:$name,genre:$genre, authorId:$authorId){
+mutation($name:String!,$genre:String!,$directorId: ID!){
+    addMovie(name:$name,genre:$genre, directorId:$directorId){
         name
         id
     }

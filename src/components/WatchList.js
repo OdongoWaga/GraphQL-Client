@@ -17,7 +17,7 @@ class WatchList extends Component {
             );
           })
         }
-    
+     
       }
     
     render(){
