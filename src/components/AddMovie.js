@@ -42,7 +42,7 @@ class AddMovie extends Component {
             <form id= "add-movie" onSubmit={this.submitForm}>
 
             <div className="field">
-            <label>Movie name </label>
+            <label>Movie </label>
             <input type="text" onChange={(e)=> this.setState({name:e.target.value})} />
             </div>
             
