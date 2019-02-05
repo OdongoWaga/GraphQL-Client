@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import {graphql} from 'react-apollo';
+import {graphql, compose} from 'react-apollo';
 
-import {getDirectorsQuery} from '../queries/queries'
+import {getDirectorsQuery, addMovieMutation} from '../queries/queries'
 
 
 class AddMovie extends Component {
@@ -14,7 +14,7 @@ class AddMovie extends Component {
     }
 
     displayDirectors(){
-    let data = this.props.data;
+    let data = this.props.getDirectorsQuery;
     if(data.loading){
         return (<option disabled> Loading Directors... </option>)
     } else{
@@ -25,6 +25,7 @@ class AddMovie extends Component {
     }
     submitForm=(e)=> {
         e.preventDefault();
+        this.props.addMovieMutation();
     }
     
 
@@ -58,4 +59,8 @@ class AddMovie extends Component {
     }
 }
 
-export default graphql(getDirectorsQuery) (AddMovie) ;
+export default compose(
+
+    graphql(getDirectorsQuery, {name:"getDirectorsQuery"}),
+    graphql(addMovieMutation, {name:"addMovieMutation"})
+)(AddMovie);

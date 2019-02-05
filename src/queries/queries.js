@@ -20,4 +20,14 @@ const getDirectorsQuery =gql`
 
 `
 
-export {getDirectorsQuery, getMoviesQuery}
+const addMovieMutation =gql`
+mutation{
+    addMovie(name:"",genre:"", authorId:""){
+        name
+        id
+    }
+}
+`
+
+
+export {getDirectorsQuery, getMoviesQuery, addMovieMutation}
