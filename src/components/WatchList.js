@@ -22,7 +22,7 @@ class WatchList extends Component {
         } else{
           return data.movies.map(movie=> {
             return (
-              <li>{movie.name} </li>
+              <li key ={movie.id}>{movie.name} </li>
             );
           })
         }
@@ -34,7 +34,7 @@ class WatchList extends Component {
             <div>
                 <ul id="movie-list">
                     {this.displayMovies()}
-                </ul>
+                </ul> 
             </div>
         );
     }
