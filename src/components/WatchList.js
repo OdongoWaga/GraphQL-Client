@@ -1,4 +1,17 @@
 import React, { Component } from 'react';
+import {gql} from 'apollo-boost';
+import {graphql} from 'react-apollo';
+
+
+const getMoviesQuery =gql`
+{
+    movies{
+        name 
+        id
+    }
+}
+
+`
 
 class WatchList extends Component {
     render(){
@@ -12,4 +25,4 @@ class WatchList extends Component {
     }
 }
 
-export default WatchList;
+export default graphql(getMoviesQuery) (WatchList) ;
