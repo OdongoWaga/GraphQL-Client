@@ -25,7 +25,13 @@ class AddMovie extends Component {
     }
     submitForm=(e)=> {
         e.preventDefault();
-        this.props.addMovieMutation();
+        this.props.addMovieMutation({
+            variables:{
+                name: this.state.name,
+                genre: this.state.genre,
+                authorId: this.state.authorId
+            }
+        });
     }
     
 
