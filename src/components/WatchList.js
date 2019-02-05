@@ -14,11 +14,26 @@ const getMoviesQuery =gql`
 `
 
 class WatchList extends Component {
+
+    displayMovies(){
+        let data = this.props.data;
+        if(data.loading){
+          return (<div>Loading Movies...</div>)
+        } else{
+          return data.movies.map(movie=> {
+            return (
+              <li>{movie.name} </li>
+            );
+          })
+        }
+    
+      }
+    
     render(){
         return(
             <div>
-                <ul id="book-list">
-                    <li>Movie name</li>
+                <ul id="movie-list">
+                    {this.displayMovies()}
                 </ul>
             </div>
         );

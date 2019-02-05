@@ -9,7 +9,7 @@ const client = new ApolloClient({
 })
 
 class App extends Component {
-  render() {
+    render() {
     return (
       <ApolloProvider client={client}>
       <div id="main">
