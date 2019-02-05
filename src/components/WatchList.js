@@ -6,6 +6,9 @@ import MovieDetails from './MovieDetails';
 
 
 class WatchList extends Component {
+    state={
+        selected: null
+    }
 
     displayMovies(){
         let data = this.props.data;
@@ -14,7 +17,7 @@ class WatchList extends Component {
         } else{
           return data.movies.map(movie=> {
             return (
-              <li key ={movie.id}>{movie.name} </li>
+              <li key ={movie.id} onClick={(e)=> {this.setState({selected:movie.id})}}>{movie.name}</li>
             );
           })
         }
@@ -27,7 +30,7 @@ class WatchList extends Component {
                 <ul id="movie-list">
                     {this.displayMovies()}
                 </ul> 
-                <MovieDetails />
+                <MovieDetails movieId ={this.state.selected}/>
             </div>
         );
     }

@@ -30,16 +30,16 @@ mutation($name:String!,$genre:String!,$directorId: ID!){
 `
 
 const getMovieQuery = gql `
-query($id: String){
+query($id: ID){
     movie(id:$id){
         id
         name
         genre
-        author{
+        director{
             id
             name
             age
-            books{
+            movies{
                 name
                 id
             }
