@@ -29,5 +29,24 @@ mutation($name:String!,$genre:String!,$directorId: ID!){
 }
 `
 
+const getMovieQuery = gql `
+query($id: String){
+    movie(id:$id){
+        id
+        name
+        genre
+        author{
+            id
+            name
+            age
+            books{
+                name
+                id
+            }
+        }
+    }
+}
+`
 
-export {getDirectorsQuery, getMoviesQuery, addMovieMutation}
+
+export {getDirectorsQuery, getMoviesQuery, addMovieMutation, getMovieQuery}
