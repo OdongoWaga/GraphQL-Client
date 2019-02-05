@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
-import {gql} from 'apollo-boost';
+import {getMoviesQuery} from '../queries/queries';
 import {graphql} from 'react-apollo';
 
 
-const getMoviesQuery =gql`
-{
-    movies{
-        name 
-        id
-    }
-}
-
-`
 
 class WatchList extends Component {
 
